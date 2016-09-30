@@ -10,7 +10,11 @@
               <property name="serviceUrl"
                         value="http://localhost:8083/remoting/userService" />
               <property name="serviceInterface" value="com.haqiu.contract.demo.UserFacade" />
+           <!--新增overloadEnabled属性，并把它的值设置为true，默认是false，则Hessian就能支持方法的重载了。-->
+           <property name="overloadEnabled" value="true" />
        </bean>
+
+
 
 
 </beans>
