@@ -10,6 +10,25 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>again.service</artifactId>
+    <packaging>war</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.haqiu</groupId>
+            <artifactId>again.contract</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.haqiu</groupId>
+            <artifactId>again.core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <server.path>/</server.path>
+        <server.port>8083</server.port>
+        <jetty.scanIntervalSeconds>0</jetty.scanIntervalSeconds>
+    </properties>
 
 </project>

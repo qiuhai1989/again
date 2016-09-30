@@ -10,6 +10,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>again.web</artifactId>
+    <packaging>war</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.haqiu</groupId>
+            <artifactId>again.contract</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.haqiu</groupId>
+            <artifactId>again.core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
