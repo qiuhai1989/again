@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository("studentRepository")
 public interface StudentRepository extends  BaseRepository<Student,Long>{
 
-
+    Student selectBySname(String sname);
 
 }

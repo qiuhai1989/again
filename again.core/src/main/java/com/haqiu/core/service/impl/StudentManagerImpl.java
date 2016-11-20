@@ -23,4 +23,9 @@ public class StudentManagerImpl extends BaseManagerImpl<Student,Long> implements
     public void setBaseDao(BaseRepository<Student, Long> baseRepository) {
         this.baseRepository = studentRepository;
     }
+
+    @Override
+    public Student selectBySname(String sname) {
+        return studentRepository.selectBySname(sname);
+    }
 }
