@@ -1,5 +1,6 @@
 package com.haqiu.core.service.impl;
 
+import com.haqiu.core.dto.StudentDto;
 import com.haqiu.core.entity.Student;
 import com.haqiu.core.repository.BaseRepository;
 import com.haqiu.core.repository.StudentRepository;
@@ -22,5 +23,25 @@ public class StudentManagerImpl extends BaseManagerImpl<Student,Long> implements
     @Resource(name = "studentRepository")
     public void setBaseDao(BaseRepository<Student, Long> baseRepository) {
         this.baseRepository = studentRepository;
+    }
+
+    @Override
+    public Student findBySname(String sname) {
+        return studentRepository.findBySname(sname);
+    }
+
+    @Override
+    public List<Student> selectBySageIsGreaterThan(Short sage) {
+        return studentRepository.findBySageIsGreaterThan(sage);
+    }
+
+    @Override
+    public long countStudentBySageIsGreaterThan(Short sage) {
+        return studentRepository.countStudentBySageIsGreaterThan(sage);
+    }
+
+    @Override
+    public List<StudentDto> selectAvgGreaterThanGrade(int grade) {
+        return studentRepository.selectAvgGreaterThanGrade(grade);
     }
 }
