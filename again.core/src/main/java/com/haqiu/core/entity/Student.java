@@ -1,8 +1,5 @@
 package com.haqiu.core.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.search.annotations.DocumentId;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -16,7 +13,7 @@ public class Student implements Serializable {
 
     private String sname;
 
-    private String adree;
+    private String sdree;
 
     private Short sage;
 
@@ -38,12 +35,12 @@ public class Student implements Serializable {
         this.sname = sname;
     }
 
-    public String getAdree() {
-        return adree;
+    public String getSdree() {
+        return sdree;
     }
 
-    public void setAdree(String adree) {
-        this.adree = adree;
+    public void setSdree(String sdree) {
+        this.sdree = sdree;
     }
 
     public Short getSage() {

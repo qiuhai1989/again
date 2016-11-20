@@ -19,6 +19,7 @@ public class StudentManagerImpl extends BaseManagerImpl<Student,Long> implements
     private StudentRepository studentRepository;
 
     @Override
+    @Resource(name = "studentRepository")
     public void setBaseDao(BaseRepository<Student, Long> baseRepository) {
         this.baseRepository = studentRepository;
     }
