@@ -22,6 +22,7 @@
        </context:component-scan>
 
        <context:annotation-config />
+       <context:annotation-config />
 
        <bean id="log-filter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">
               <property name="resultSetLogEnabled" value="false" />
@@ -79,7 +80,7 @@
        <bean id="druid-stat-pointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut" scope="prototype">
               <property name="patterns">
                      <list>
-                            <value>com.hai.demo.*.service.*</value>
+                            <value>com.haqiu.core.service.*</value>
                      </list>
               </property>
        </bean>

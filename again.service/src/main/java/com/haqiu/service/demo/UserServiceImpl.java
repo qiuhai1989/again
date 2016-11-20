@@ -1,8 +1,6 @@
 package com.haqiu.service.demo;
 
 import com.haqiu.contract.demo.UserFacade;
-import com.haqiu.core.service.UserManager;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +11,7 @@ public class UserServiceImpl implements UserFacade {
 
 /*
     @Autowired
-    private UserManager userManager;
+    private StudentManager userManager;
 */
 
     @Override

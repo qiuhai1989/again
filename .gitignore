@@ -8,4 +8,9 @@
 out
 gen
 
-\target\*
+again.contract/target/
+again.core/target/
+again.dictionary/target/
+again.framework/target/
+again.service/target/
+again.web/target/
