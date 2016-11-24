@@ -65,8 +65,6 @@
         <version.mysql>5.1.29</version.mysql>
 
         <version.commons-collections>3.2.1</version.commons-collections>
-        <version.tk.mybatis>3.3.3</version.tk.mybatis>
-        <version.pagehelper>4.0.3</version.pagehelper>
         <version.shiro>1.2.2</version.shiro>
         <version.cxf>3.1.4</version.cxf>
         <version.jackson-jaxrs-json-provider>2.3.2</version.jackson-jaxrs-json-provider>
@@ -263,32 +261,7 @@
                 <version>${version.mybatis}</version>
             </dependency>
 
-            <!-- mybatis-spring -->
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis-spring</artifactId>
-                <version>${version.mybatis-spring}</version>
-            </dependency>
 
-            <!--通用Mapper-->
-            <dependency>
-                <groupId>tk.mybatis</groupId>
-                <artifactId>mapper</artifactId>
-                <version>${version.tk.mybatis}</version>
-            </dependency>
-
-            <!--分页插件-->
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper</artifactId>
-                <version>${version.pagehelper}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.github.jsqlparser</groupId>
-                <artifactId>jsqlparser</artifactId>
-                <version>${version.jsqlparser}</version>
-            </dependency>
             <!--shiro-->
             <dependency>
                 <groupId>org.apache.shiro</groupId>
@@ -600,34 +573,6 @@
 
 
 
-        <!-- mybatis -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-        </dependency>
-
-        <!-- mybatis-spring -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-        </dependency>
-
-        <!--通用Mapper-->
-        <dependency>
-            <groupId>tk.mybatis</groupId>
-            <artifactId>mapper</artifactId>
-        </dependency>
-
-        <!--分页插件-->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.jsqlparser</groupId>
-            <artifactId>jsqlparser</artifactId>
-        </dependency>
         <!--shiro-->
         <dependency>
             <groupId>org.apache.shiro</groupId>
@@ -702,6 +647,10 @@
                 <exclusion>
                     <groupId>org.slf4j</groupId>
                     <artifactId>jcl-over-slf4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-beanutils</groupId>
+                    <artifactId>commons-beanutils</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
