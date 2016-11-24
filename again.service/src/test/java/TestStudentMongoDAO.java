@@ -1,5 +1,3 @@
-package test;
-
 import com.haqiu.core.entity.Student;
 import com.haqiu.core.mongo.StudentMongoDAO;
 import org.junit.Test;
