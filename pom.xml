@@ -71,6 +71,8 @@
         <version.httpclient>4.5.1</version.httpclient>
         <version.Hibernate>3.6.10.Final</version.Hibernate>
         <version.javassist>3.15.0-GA</version.javassist>
+        <version.mongodb>1.9.4.RELEASE</version.mongodb>
+        <version.spring-data-jpa>1.6.2.RELEASE</version.spring-data-jpa>
     </properties>
 
     <dependencyManagement>
@@ -165,7 +167,17 @@
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-jpa</artifactId>
-                <version>1.6.2.RELEASE</version>
+                <version>${version.spring-data-jpa}</version>
+<!--                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.data</groupId>
+                        <artifactId>spring-data-commons</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>jcl-over-slf4j</artifactId>
+                    </exclusion>
+                </exclusions>-->
             </dependency>
             <!-- aspectjweaver(Spring依赖的jar)  -->
             <dependency>
@@ -254,12 +266,6 @@
 
 
 
-            <!-- mybatis -->
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>${version.mybatis}</version>
-            </dependency>
 
 
             <!--shiro-->
@@ -428,6 +434,21 @@
                 <artifactId>javassist</artifactId>
                 <version>${version.javassist}</version>
             </dependency>
+
+
+            <!--spring data mongodb -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-mongodb</artifactId>
+                <version>${version.mongodb}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-expression</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
@@ -497,8 +518,8 @@
             <artifactId>spring-context-support</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-jpa</artifactId>
         </dependency>
         <!-- aspectjweaver(Spring依赖的jar)  -->
         <dependency>
@@ -678,6 +699,23 @@
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
         </dependency>
+
+        <!--spring data mongodb -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.data</groupId>
+                    <artifactId>spring-data-commons</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
     </dependencies>
 
 

@@ -149,7 +149,6 @@
         </dependency>
 
 
-
         <!--shiro-->
         <dependency>
             <groupId>org.apache.shiro</groupId>
@@ -193,6 +192,13 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+        </dependency>
+
+
     </dependencies>
 
 </project>

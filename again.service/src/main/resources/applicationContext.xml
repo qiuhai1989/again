@@ -14,7 +14,7 @@
            "
        default-lazy-init="true">
 
-       <context:property-placeholder location="classpath:config/jdbc.properties,config/common.properties" ignore-resource-not-found="true"
+       <context:property-placeholder location="classpath:config/*.properties" ignore-resource-not-found="true"
             ignore-unresolvable="true" local-override="true" />
 
        <context:component-scan base-package="com.haqiu">
@@ -131,5 +131,5 @@
        <jpa:repositories base-package="com.haqiu.core.repository" entity-manager-factory-ref="entityManagerFactory"
                          transaction-manager-ref="transactionManager" />
 
-
+        <import resource="spring-mongodb.xml"/>
 </beans>
