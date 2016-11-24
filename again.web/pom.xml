@@ -29,4 +29,10 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <server.path>/</server.path>
+        <server.port>8082</server.port>
+        <jetty.scanIntervalSeconds>0</jetty.scanIntervalSeconds>
+    </properties>
+
 </project>
