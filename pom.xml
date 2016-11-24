@@ -71,8 +71,8 @@
         <version.httpclient>4.5.1</version.httpclient>
         <version.Hibernate>3.6.10.Final</version.Hibernate>
         <version.javassist>3.15.0-GA</version.javassist>
-        <version.mongodb>1.9.4.RELEASE</version.mongodb>
-        <version.spring-data-jpa>1.6.2.RELEASE</version.spring-data-jpa>
+        <version.mongodb>1.8.6.RELEASE</version.mongodb>
+        <version.spring-data-jpa>1.9.6.RELEASE</version.spring-data-jpa>
     </properties>
 
     <dependencyManagement>
@@ -704,7 +704,7 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-mongodb</artifactId>
-            <exclusions>
+<!--            <exclusions>
                 <exclusion>
                     <groupId>org.springframework.data</groupId>
                     <artifactId>spring-data-commons</artifactId>
@@ -713,7 +713,7 @@
                     <groupId>org.slf4j</groupId>
                     <artifactId>jcl-over-slf4j</artifactId>
                 </exclusion>
-            </exclusions>
+            </exclusions>-->
         </dependency>
 
     </dependencies>
