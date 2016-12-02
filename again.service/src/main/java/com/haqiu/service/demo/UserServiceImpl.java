@@ -1,12 +1,14 @@
 package com.haqiu.service.demo;
 
 import com.haqiu.contract.demo.UserFacade;
+import com.haqiu.framework.rpc.RemoteService;
 import org.springframework.stereotype.Service;
 
 /**
  * Created by Administrator on 2016/9/30.
  */
 @Service("UserServiceImpl")
+@RemoteService("/userService")
 public class UserServiceImpl implements UserFacade {
 
 /*
