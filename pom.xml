@@ -15,6 +15,7 @@
         <module>again.contract</module>
         <module>again.web</module>
         <module>again.service</module>
+        <module>again.jms</module>
     </modules>
 
     <properties>
@@ -73,6 +74,7 @@
         <version.javassist>3.15.0-GA</version.javassist>
         <version.mongodb>1.8.6.RELEASE</version.mongodb>
         <version.spring-data-jpa>1.9.6.RELEASE</version.spring-data-jpa>
+        <version.activemq>5.12.1</version.activemq>
     </properties>
 
     <dependencyManagement>
@@ -449,6 +451,12 @@
                 </exclusions>
             </dependency>
 
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-all</artifactId>
+                <version>${version.activemq}</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
@@ -715,6 +723,8 @@
                 </exclusion>
             </exclusions>-->
         </dependency>
+
+
 
     </dependencies>
 

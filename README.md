@@ -12,6 +12,6 @@
 ### again.framework
 系统工具类，架构相关
 ### again.service
-服务提供模块，用于给web等对外模块调用服务
+基于Hession实现服务提供模块，用于给web等对外模块调用服务
 ### again.web
 对外服务模块
