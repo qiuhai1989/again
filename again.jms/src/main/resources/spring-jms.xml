@@ -6,15 +6,30 @@
        xmlns:amq="http://activemq.apache.org/schema/core"
        xmlns:jms="http://www.springframework.org/schema/jms"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/jms  http://www.springframework.org/schema/jms/spring-jms-4.0.xsd
+       http://www.springframework.org/schema/jms  http://www.springframework.org/schema/jms/spring-jms-3.2.xsd
        http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core-5.8.0.xsd
        ">
 
 
+        <amq:queue id="spittleQueue" physicalName="spittle.alert.queue" />
+
+        <amq:topic id="spittleTopic" physicalName="spittle.alert.topic" />
+
+        <amq:connectionFactory id="connectionFactory" brokerURL="tcp://localhost:61616" />
+
+        <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate" c:_0-ref="connectionFactory"
+              p:defaultDestinationName="spittle.alert.queue"/>
 
 
+        <bean id="alertService" class="spittr.alerts.AlertServiceImpl"
+              c:_0-ref="jmsTemplate" />
+
+        <jms:listener-container >
+                <jms:listener destination="spittle.alert.queue" ref="spittleHandler" method="handleSpittleAlert"/>
+        </jms:listener-container>
 
 
+        <bean id="spittleHandler" class="spittr.alerts.SpittleAlertHandler" />
 
 
 
