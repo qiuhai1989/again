@@ -5,7 +5,7 @@ rem ÉèÖÃ¿ØÖÆÌ¨Ç°¾°ºÍ±³¾°É« ÑÕÉ«ÊôÐÔÓÉÁ½¸öÊ®Áù½øÖÆÊý×ÖÖ¸¶¨ -- µÚÒ»¸öÎª±³¾°£¬µÚ¶þ¸
 color 06
 rem mode ÅäÖÃÏµÍ³Éè±¸
 rem ÉèÖÃDOS´°¿Ú´óÐ¡£º15ÐÐ£¬113ÁÐ
-mode con cols=113 lines=15 & color 9f
+mode con cols=213 lines=45 & color 9f
 
 rem Êä³öÌáÊ¾ÐÅÏ¢
 echo "»¶Ó­À´µ½·Ç³£BAT!"
@@ -60,14 +60,75 @@ call %cmdstr%
 	goto exit
 	:exit
 :: IF [NOT] string1==string2 command
+:: string1ºÍstring2¶¼Îª×Ö·ûµÄÊý¾Ý£¬Ó¢ÎÄÄÚ×Ö·ûµÄ´óÐ¡Ð´½«¿´×÷²»Í¬£¬Õâ¸öÌõ¼þÖÐµÄµÈÓÚºÅ±ØÐëÊÇÁ½¸ö£¨¾ø¶ÔÏàµÈµÄÒâË¼£©Ìõ¼þÏàµÈºó¼´Ö´ÐÐºóÃæµÄcommand
+	if  [abc]==[abc] echo ×Ö·û´®ÏàµÈ
+	if not [abc]==[abd] echo ×Ö·û´®²»ÏàµÈ
 :: IF [NOT] EXIST filename command
-::
+:: EXIST filenameÎªÎÄ¼þ»òÄ¿Â¼´æÔÚµÄÒâË¼
+	IF EXIST autoexec.bat echo ÎÄ¼þ´æÔÚ£¡
+	IF not EXIST autoexec.bat echo ÎÄ¼þ²»´æÔÚ£¡
+
+:: ±äÁ¿¶¨Òå
+::1.Åú´¦Àí¶ÁÈ¡ÃüÁîÊ±ÊÇ°´ÐÐ¶ÁÈ¡µÄ£¨ÁíÍâÀýÈçforÃüÁîµÈ£¬ÆäºóÓÃÒ»¶ÔÔ²À¨ºÅ±ÕºÏµÄËùÓÐÓï¾äÒ²µ±×÷Ò»ÐÐ£©£¬ÔÚ´¦ÀíÖ®Ç°ÒªÍê³É±ØÒªµÄÔ¤´¦Àí¹¤×÷£¬ÕâÆäÖÐ¾Í°üÀ¨¶Ô¸Ã ÐÐÃüÁîÖÐµÄ±äÁ¿¸³Öµ
+set a=4
+set a=5 & echo %a%
+
+::2.¶øÎªÁËÄÜ¹»¸ÐÖª»·¾³±äÁ¿µÄ¶¯Ì¬±ä»¯£¬Åú´¦ÀíÉè¼ÆÁË±äÁ¿ÑÓ³Ù¡£¼òµ¥À´Ëµ£¬ÔÚ¶ÁÈ¡ÁËÒ»ÌõÍêÕûµÄÓï¾äÖ®ºó£¬²»Á¢¼´¶Ô¸ÃÐÐµÄ±äÁ¿¸³Öµ£¬¶ø»áÔÚÄ³¸öµ¥ÌõÓï¾äÖ´ÐÐÖ®Ç°ÔÙ½øÐÐ¸³Öµ£¬Ò²¾ÍÊÇËµ¡°ÑÓ³Ù¡±ÁË¶Ô±äÁ¿µÄ¸³Öµ¡£
+::¿ªÆô±äÁ¿ÑÓ³Ù--±äÁ¿ÑÓ³ÙµÄÆô¶¯Óï¾äÊÇ¡°setlocal enabledelayedexpansion¡±£¬²¢ÇÒ±äÁ¿ÒªÓÃÒ»¶ÔÌ¾ºÅ¡°!!¡±À¨ÆðÀ´£¨×¢ÒâÒªÓÃÓ¢ÎÄµÄÌ¾ºÅ£©£¬·ñÔò¾ÍÃ»ÓÐ±äÁ¿ÑÓ³ÙµÄÐ§¹û
+setlocal enabledelayedexpansion
+set a=4
+set a=5 & echo !a!
+
+::& ×éºÏÃüÁî &¡¢&&¡¢||Îª×éºÏÃüÁî£¬¹ËÃûË¼Òå£¬¾ÍÊÇ¿ÉÒÔ°Ñ¶à¸öÃüÁî×éºÏÆðÀ´µ±Ò»¸öÃüÁîÀ´Ö´ÐÐ
+echo aa & echo bb
+::&& ×éºÏÃüÁî ÓÃÕâÖÖ·½·¨¿ÉÒÔÍ¬Ê±Ö´ÐÐ¶àÌõÃüÁî£¬µ±Åöµ½Ö´ÐÐ³ö´íµÄÃüÁîºó½«²»Ö´ÐÐºóÃæµÄÃüÁî£¬Èç¹ûÒ»Ö±Ã»ÓÐ³ö´íÔòÒ»Ö±Ö´ÐÐÍêËùÓÐÃüÁî
+::||  ×éºÏÃüÁî ÓÃÕâÖÖ·½·¨¿ÉÒÔÍ¬Ê±Ö´ÐÐ¶àÌõÃüÁî£¬µ±Ò»ÌõÃüÁîÊ§°Üºó²ÅÖ´ÐÐµÚ¶þÌõÃüÁî£¬µ±Åöµ½Ö´ÐÐÕýÈ·µÄÃüÁîºó½«²»Ö´ÐÐºóÃæµÄÃüÁî£¬Èç¹ûÃ»ÓÐ³öÏÖÕýÈ·µÄÃüÁîÔòÒ»Ö±Ö´ÐÐÍêËùÓÐÃüÁî£»
+
+::·ÖºÅ£¬µ±ÃüÁîÏàÍ¬Ê±£¬¿ÉÒÔ½«²»Í¬Ä¿±êÓÃ£»À´¸ôÀë£¬µ«Ö´ÐÐÐ§¹û²»±ä£¬ÈçÖ´ÐÐ¹ý³ÌÖÐ·¢Éú´íÎó£¬ÔòÖ»·µ»Ø´íÎó±¨¸æ£¬µ«³ÌÐòÈÔ»áÖ´ÐÐ
+::dir E:\CODE\abp;E:\myProject\again
+
+::() À¨ºÅ Ð¡À¨ºÅÔÚÅú´¦Àí±à³ÌÖÐÓÐÌØÊâµÄ×÷ÓÃ£¬×óÓÒÀ¨ºÅ±ØÐë³É¶ÔÊ¹ÓÃ£¬À¨ºÅÖÐ¿ÉÒÔ°üÀ¨¶àÐÐÃüÁî£¬ÕâÐ©ÃüÁî½«±»¿´³ÉÒ»¸öÕûÌå£¬ÊÓÎªÒ»ÌõÃüÁîÐÐ
+(
+echo 1
+echo 2
+echo 3
+)
+
+:: for Ñ­»· FOR %%variable IN (set) DO command [command-parameters]
+:: ²ÎÊý /d Èç¹û¼¯ÖÐ°üº¬Í¨Åä·û£¬ÔòÖ¸¶¨ÓëÄ¿Â¼ÃûÆ¥Åä£¬¶ø²»ÓëÎÄ¼þÃûÆ¥Åä
+for /d %%i in (c:\*) do echo %%i
+
+for /L %%i in (0,1,5) do echo %%i
+:: ²ÎÊý /R FOR /R [[drive:]path] %%variable IN (set) DO command [command-parameters] ²éÒÔ [drive:]path Îª¸ùµÄÄ¿Â¼Ê÷£¬Ö¸ÏòÃ¿¸öÄ¿Â¼ÖÐµÄFOR Óï¾ä
+::for /r c:\ %%i in (*.exe) do echo %%i
+:: °Ñµ±Ç°Ä¿Â¼ÏÂËùÓÐxmlÎÄ¼þÁÐ¾Ù³öÀ´
+::for  /r E:\CODE\abp  %%i in (*.xml) do @echo %%i
+::for  /r E:\CODE\abp  %%i in (*.xml) do if exist %%i @echo %%i
+
+rem ÏµÍ³ÒÑÓÐ±äÁ¿
+echo %os%
+echo %CD%
+echo %DATE%
+echo %USERNAME%
+echo %WINDIR%
+
+echo.
+rem ×Ô¶¨Òå±äÁ¿
+set var=ÎÒÊÇÖµ
+echo %var%
+
+set /p var=ÇëÊäÈë±äÁ¿µÄÖµ
+echo %var%
 
 
-
-
-
-
+set var=0
+rem ************Ñ­»·¿ªÊ¼ÁË
+:continue
+set /a var+=1
+echo µÚ%var%´ÎÑ­»·
+if %var% lss 100 goto continue
+rem ************Ñ­»·½áÊøÁË
+echo Ñ­»·Ö´ÐÐÍê±Ï
 
 
 
