@@ -1,0 +1,7 @@
+场景名称：${name}
+<br/> 
+场景地址：${url}
+<br/>  
+异常信息：${exceptionInfo}
+<br/> 
+检测时间：${created}

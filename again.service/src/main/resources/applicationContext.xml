@@ -132,4 +132,5 @@
                          transaction-manager-ref="transactionManager" />
 
         <import resource="spring-mongodb.xml"/>
+        <import resource="spring-email.xml"/>
 </beans>
